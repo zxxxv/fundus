@@ -1,3 +1,4 @@
+import pdb
 import re
 from datetime import datetime
 from typing import List, Optional
@@ -5,37 +6,56 @@ from typing import List, Optional
 from lxml.cssselect import CSSSelector
 from lxml.etree import XPath
 
-from fundus.parser import ArticleBody, BaseParser, Image, ParserProxy, attribute
+from fundus.parser import (
+    ArticleBody,
+    BaseParser,
+    Image,
+    ParserProxy,
+    attribute,
+    function,
+)
 from fundus.parser.utility import (
     extract_article_body_with_selector,
     generic_author_parsing,
     generic_date_parsing,
     generic_topic_parsing,
     image_extraction,
+    transform_breaks_to_paragraphs,
 )
 
 
 class MBNParser(ParserProxy):
     class V1(BaseParser):
-        _summary_selector = XPath("//div[@class='mid_title']//div")
-        _paragraph_selector = XPath(
-                "//div[@itemprop='articleBody']//p"
-                " | "
-                "//div[@itemprop='articleBody']//div[normalize-space(text())"
-                " and not(ancestor::div[@class='mid_title'])]"
-        )
+        _paragraph_selector = XPath("//div[@itemprop='articleBody']//p[normalize-space()]")
+        _full_text_selector = XPath("//div[@itemprop='articleBody']")
+
+        @function(priority=0)
+        def _transform_br_element(self):
+            nodes = self._full_text_selector(self.precomputed.doc)
+            if not nodes or len(nodes) != 1:
+                return
+            element = nodes[0]
+
+            if element.xpath(".//p[normalize-space()]"):
+                return
+
+            for ad in element.xpath(".//div[contains(@class,'ad_wrap')]"):
+                parent = ad.getparent()
+                if parent is not None:
+                    parent.remove(ad)
+
+            transform_breaks_to_paragraphs(element, __class__="br-wrap")
 
         @attribute
         def body(self) -> Optional[ArticleBody]:
             return extract_article_body_with_selector(
                 self.precomputed.doc,
                 paragraph_selector=self._paragraph_selector,
-                summary_selector=self._summary_selector,
             )
 
         @attribute
         def authors(self) -> List[str]:
-            return generic_author_parsing(self.precomputed.ld.xpath_search("NewsArticle/author", scalar=True))
+            return generic_author_parsing(self.precomputed.ld.xpath_search("NewsArticle/author", scalar=False))
 
         @attribute
         def publishing_date(self) -> Optional[datetime]:
@@ -47,24 +67,22 @@ class MBNParser(ParserProxy):
 
         @attribute
         def images(self) -> List[Image]:
-            return image_extraction(
+            imgs = image_extraction(
                 doc=self.precomputed.doc,
                 paragraph_selector=self._paragraph_selector,
                 upper_boundary_selector=XPath("//div[@itemprop='articleBody']"),
                 image_selector=XPath("//div[@itemprop='articleBody']//div[@class='thumb_area img']//img"),
-                caption_selector=XPath("./ancestor::div[@class='thumb_area img']//span[@class='thum_figure_txt']"),
+                caption_selector=XPath("./ancestor::div[@class='thumb_area img']" "//span[@class='thum_figure_txt']"),
                 alt_selector=XPath("./@alt"),
-                author_selector = re.compile(
-                     r'^\s*(?:<(?P<credits>[^>]+)>|\[?\s*(?:사진\s*=?\s*)?(?P<credits>[^\]\r\n<>]+)\s*\]?)\s*$'
-                ),
-                
-#                author_selector = re.compile(
-#                    r'^\s*(?:'
-#                    r'<(?P<credits>[^>]+)>'                                     # <OOO 기자>
-#                    r'|\[?\s*(?:사진\s*=?\s*)?(?P<credits>[^\]\r\n<>]+)\?'
-#                    r'|.*?사진\s*=\s*(?P<credits>[^]\r\n<>]+)'
-#                    r')\s*$'
-#                )
-                
+                author_selector=re.compile(r"^(?!.*)"),
             )
 
+            pattern = re.compile(
+                r"\[사진(?:\s*출처)?\s*=\s*([^\]]+)\]" r"|<\s*([^>]+?)\s*기자\s*>" r"|사진\s*=\s*([^.\]\r\n<>]+)"
+            )
+            for img in imgs:
+                text = img.caption or img.description or ""
+                raw = [a or b or c for a, b, c in pattern.findall(text)]
+                img.authors = list(dict.fromkeys([s.strip() for s in raw if s.strip()]))
+
+            return imgs
