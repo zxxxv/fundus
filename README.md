@@ -202,16 +202,23 @@ fundus/
 │       ├── fundus-logo.png        # 프로젝트 로고
 │       └── …                      # 추가 로고 파일
 ├── scripts/                       # 유틸리티 스크립트
-│   ├── some_setup_script.sh       # 예: 환경 설정을 위한 스크립트
+│   ├──generate_table.py           # 지원 가능한 퍼블리셔 목록 생
 │   └── …                          # 기타 자동화 스크립트
 ├── src/                           # 소스 코드
 │   └── fundus/                    # Python 패키지 루트
 │       ├── __init__.py            # 패키지 초기화 파일
-│       ├── article.py             # 크롤링된 기사를 나타내는 클래스 정의
-│       ├── crawler.py             # 일반 웹 크롤러 메인 로직
-│       ├── ccnews_crawler.py      # CC-NEWS 아카이브를 위한 대규모 크롤러
-│       ├── exceptions.py          # 커스텀 예외 정의
-│       ├── helpers.py             # 내부적으로 쓰이는 유틸리티 함수 모음
+│       ├── logging.py             # Fundus 전반에서 사용하는 로거(logger) 설정 및 생성 함수
+│       ├── py.typed               # PEP 561 타입 힌트 마커 파일 (타입 검사 도구 인식용)
+│       ├── parser/                # 여러 퍼블리셔별 파서(parser) 관련 모듈
+│       │   ├── __init__.py        # 퍼블리셔 패키지 초기화
+│       │   ├── base_parser.py     # 모든 퍼블리셔 파서가 상속하는 공통 기능(BaseParser) 정의
+│       │   ├── data.py            # 파싱된 기사 데이터 구조(모델) 정의
+│       │   └── …                  # 추가된 다른 퍼블리셔별 파서 모듈들
+│       ├── scraping/              # 웹 크롤링 및 스크래핑 로직 관련 모듈
+│       │   ├── __init__.py        # scraping 패키지 초기화
+│       │   ├── article.py         # 크롤링된 웹 페이지(HTML)와 메타정보를 담는 Article 클래스 정의
+│       │   ├── crwaler.py         # 실제 웹사이트를 순회하며 Article 객체를 생성하는 Crawler 구현
+│       │   └── …                  # 요청, 필터, HTML 파싱 등 기타 스크래핑 지원 모듈
 │       ├── publishers/            # 퍼블리셔별 스펙 및 파서 정의
 │       │   ├── __init__.py        # 퍼블리셔 패키지 초기화
 │       │   ├── us.py              # 미국 기반 퍼블리셔(예: TheNewYorker 등)
@@ -223,8 +230,9 @@ fundus/
 │       │   └── …                  # 기타 국가별 퍼블리셔 정의
 │       └── utils/                 # 내부 도우미 함수 및 공용 유틸리티
 │           ├── __init__.py        # 유틸리티 패키지 초기화
-│           ├── fetch_utils.py     # HTTP 요청 및 콘텐츠 다운로드 도구
-│           └── parse_utils.py     # HTML 파싱 보조 함수
+│           ├── events.py          # Fundus 내 이벤트(예: 크롤링 시작/완료)의 상수 및 헬퍼 함수 정의
+│           └── iteration.py       # 반복(iteration) 관련 유틸리티 (청크 분할, 무한 반복 등) 구현
+│           └── …                  # 기타 공통 함수 모음
 ├── tests/                         # 테스트 코드
 │   ├── test_crawler.py            # 크롤러 동작 검증 테스트
 │   ├── test_publishers.py         # 퍼블리셔 파서 테스트
