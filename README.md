@@ -40,7 +40,7 @@ Fundus는
 ```console
 
     python >=3.8
-    requires = ["setuptools>=42.0", "wheel"]  # setuptools>=61.0 에서 안정적으로 동작함을 확인
+    setuptools>=42.0, wheel  # setuptools>=61.0 에서 안정적으로 동작함을 확인
     python-dateutil>=2.8, <3,
     lxml>=4.9, <6,
     more-itertools>=9.1, <10,
