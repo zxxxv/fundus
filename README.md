@@ -58,7 +58,7 @@ Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온�
 ## Docker
 How to start with Docker
 
-```dockerfile
+```
 
 FROM ubuntu:22.04
 
