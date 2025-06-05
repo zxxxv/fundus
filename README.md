@@ -40,6 +40,7 @@ Fundus는
 ```console
 
     python >=3.8
+    requires = ["setuptools>=42.0", "wheel"]  # setuptools>=61.0 에서 안정적으로 동작함을 확인
     python-dateutil>=2.8, <3,
     lxml>=4.9, <6,
     more-itertools>=9.1, <10,
@@ -101,6 +102,7 @@ git clone https://github.com/zxxxv/fundus.git
 ```python
 #Requirements에 명시된 패키지 자동 설치
 #fundus 디렉토리 안으로 이동
+pip install --upgrade pip setuptools wheel
 pip install .
 
 #개발자용 추가 패키지 설치
