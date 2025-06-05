@@ -99,6 +99,7 @@ git clone https://github.com/zxxxv/fundus.git
 ```
 
 ### 필수 패키지 설치
+Requirements에 명시된 패키지 자동 설치
 
 ```
 pip install .
