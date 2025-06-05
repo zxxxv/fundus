@@ -25,8 +25,6 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 
 ---
 
-<hr>
-
 ## Goal
 Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온라인 뉴스 기사를 손쉽게 크롤링할 수 있습니다.
 저의 목표는 Fundus에 KR 퍼블리셔를 추가하여, 대표 언론사 중 하나인 매일경제신문사의 기사 내용을 자동으로 스크랩해오는 기능을 구현하는 것입니다.
