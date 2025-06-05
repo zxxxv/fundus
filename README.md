@@ -18,7 +18,7 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 <div align="center">
 <hr>
 
-[Quick Start](#quick-start) | [Tutorials](#tutorials) | [News Sources](/docs/supported_publishers.md) | [Paper](https://aclanthology.org/2024.acl-demos.29/)
+[Goal](#goal) | [Docker](#docker) | [News Sources](/docs/supported_publishers.md) |  [Tutorials](#tutorials)
 
 </div>
 
@@ -37,7 +37,7 @@ Fundus is:
 
 <hr>
 
-## Quick Start
+## Goal
 
 To install from pip, simply do:
 
