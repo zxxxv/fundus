@@ -58,6 +58,7 @@ Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온�
 ## Docker
 How to start with Docker
 
+make `Dockerfile`
 ```
 
 FROM ubuntu:22.04
@@ -66,7 +67,6 @@ RUN apt-get update
 RUN apt-get install -y git python3 python3-pip vim
 
 ENTRYPOINT ["/bin/bash"]
-
 
 ```
 
