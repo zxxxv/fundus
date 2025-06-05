@@ -18,7 +18,7 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 <div align="center">
 <hr>
 
-[Goal](#goal) | [Docker](#docker) | [News Sources](/docs/supported_publishers.md)
+[Goal](#goal) | [Requirements](#requirements) | [Docker](#docker) | [News Sources](/docs/supported_publishers.md)
 
 </div>
 
@@ -31,6 +31,29 @@ Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온�
 이를 통해 한국어 뉴스 데이터 수집 범위를 확장하고, 사용자가 매일경제신문사의 최신 기사에 빠르게 접근할 수 있도록 지원합니다.
 
 <hr>
+
+## Requirements
+
+''' 
+    python >=3.8
+    python-dateutil>=2.8, <3,
+    lxml>=4.9, <6,
+    more-itertools>=9.1, <10,
+    cssselect>=1.1, <2,
+    feedparser>=6.0, <7,
+    colorama>=0.4, <1,
+    typing-extensions>=4.6, <5,
+    langdetect>=1.0, <2,
+    validators>=0.24, <1,
+    requests>=2.28, <3,
+    tqdm>=4.66, <5,
+    fastwarc>=0.14, <1,
+    chardet>=5.2, <6,
+    dill>=0.3, <1,
+    dict2xml>=1.7.6, <2,
+    xmltodict>=0.13.0, <1
+
+'''
 
 To install from pip, simply do:
 
