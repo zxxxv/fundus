@@ -124,6 +124,8 @@ pip install .[dev]
 
 ```
 exit
+```
+```
 Ctrl + P 그리고 Ctrl + Q
 ```
 
