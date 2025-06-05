@@ -106,7 +106,7 @@ pip install --upgrade pip setuptools wheel
 pip install .
 
 #개발자용 추가 패키지 설치
-pip install .[dev]
+pip install -e .[dev]
 
 #설치 확인
 pip list | grep fundus
