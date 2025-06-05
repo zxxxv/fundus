@@ -75,25 +75,25 @@ ENTRYPOINT ["/bin/bash"]
 docker build -t [이름:버전] ./
 ```
 
-###도커 컨테이너 만들고 실행
+### 도커 컨테이너 만들고 실행
 
 ```
 docker run -dit [이름:버전]
 ```
 
-###도커 컨테이너 접속
+### 도커 컨테이너 접속
 
 ```
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-###로컬로 프로젝트 클론 떠오기
+### 로컬로 프로젝트 클론 떠오기
 
 ```
 git clone https://github.com/zxxxv/fundus.git
 ```
 
-###필수 패키지 설치
+### 필수 패키지 설치
 
 ```
 pip install .
