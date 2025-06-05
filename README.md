@@ -25,22 +25,14 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 
 ---
 
-Fundus is:
-
-* **A static news crawler.** 
-  Fundus lets you crawl online news articles with only a few lines of Python code!
-  Be it from live websites or the CC-NEWS dataset.
-
-* **An open-source Python package.**
-  Fundus is built on the idea of building something together. 
-  We welcome your contribution to  help Fundus [grow](docs/how_to_contribute.md)!
-
 <hr>
 
 ## Goal
+Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온라인 뉴스 기사를 손쉽게 크롤링할 수 있습니다.
+저의 목표는 Fundus에 KR 퍼블리셔를 추가하여, 대표 언론사 중 하나인 매일경제신문사의 기사 내용을 자동으로 스크랩해오는 기능을 구현하는 것입니다.
+이를 통해 한국어 뉴스 데이터 수집 범위를 확장하고, 사용자가 매일경제신문사의 최신 기사에 빠르게 접근할 수 있도록 지원합니다.
 
-FUNDUS는 각종 언어의 뉴스기사들을 크롤링 해오는 라이브러리이다. 하지만 기존까진 한국어 및 한국 언론사에 대한 지원이 아예 없었다. 
-따라서 publisher에 KR를 추가하고 대표 언론사중 하나인 '매일경제신문사'에서 기사 내용을 스크랩해오는 기능을 추가하는 것을 목표로 했다.
+<hr>
 
 To install from pip, simply do:
 
