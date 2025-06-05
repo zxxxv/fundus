@@ -92,7 +92,7 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 ### 📢로컬로 프로젝트 클론 해오기
 
-```python
+```
 git clone https://github.com/zxxxv/fundus.git
 ```
 
