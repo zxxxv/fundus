@@ -72,18 +72,18 @@ ENTRYPOINT ["/bin/bash"]
 ```
 
 ```python
-# 도커 이미지 빌드
+#도커 이미지 빌드
 docker build -t [이름:태그] ./
 
-도커 이미지 확인하기
+#도커 이미지 확인하기
 docker images
 ```
 
 ```python
-# 도커 컨테이너 만들고 실행
+#도커 컨테이너 만들고 실행
 docker run -dit [이름:태그]
 
-도커 컨테이너 확인하기
+#도커 컨테이너 확인하기
 docker ps -a
 
 #도커 컨테이너 접속
@@ -99,7 +99,7 @@ git clone https://github.com/zxxxv/fundus.git
 ### 📢필수 패키지 설치
 
 ```python
-Requirements에 명시된 패키지 자동 설치
+#Requirements에 명시된 패키지 자동 설치
 pip install .
 
 #개발자용 추가 패키지 설치
