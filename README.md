@@ -101,6 +101,7 @@ git clone https://github.com/zxxxv/fundus.git
 
 ```python
 #Requirements에 명시된 패키지 자동 설치
+
 cd ~/fundus       # 프로젝트 루트(=pyproject.toml 있는 위치)로 이동
 pip install --upgrade pip setuptools wheel
 pip install .
