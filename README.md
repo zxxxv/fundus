@@ -34,7 +34,7 @@ Fundus는 정적 뉴스 크롤러로, 단 몇 줄의 Python 코드만으로 온�
 
 ## Requirements - 
 
-```
+```console
     #pyproject.toml에 명시
     python >=3.8
     python-dateutil>=2.8, <3,
