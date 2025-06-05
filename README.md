@@ -66,7 +66,7 @@ How to install & Run with Docker
 FROM ubuntu:22.04
 
 RUN apt-get update
-RUN apt-get install -y python3 python3-pip vim
+RUN apt-get install -y python3 python3-pip vim git
 
 ENTRYPOINT ["/bin/bash"]
 ```
