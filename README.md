@@ -160,7 +160,7 @@ Fundus-Article including 1 image(s):
 - 기사가 크롤링된 “URL”
 - 뉴스 출처(From)
 
-## Example 2: 특정 news sourc 크롤링해보기
+## Example 2: 특정 news source 크롤링해보기
 
 특정 뉴스 출처만 크롤링하고 싶을 수도 있습니다. 매일경재신문(Maeil Business Newspaper)에서만 뉴스 기사를 크롤링해보겠습니다:
 
