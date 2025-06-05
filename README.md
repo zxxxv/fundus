@@ -70,14 +70,6 @@ ENTRYPOINT ["/bin/bash"]
 
 ```
 
-To install from pip, simply do:
-
-```
-pip install fundus
-```
-
-Fundus requires Python 3.8+.
-
 
 ## Example 1: Crawl a bunch of English-language news articles
 
@@ -145,7 +137,7 @@ To crawl such a vast amount of data, Fundus relies on the `CommonCrawl` web arch
 If you're not familiar with [`CommonCrawl`](https://commoncrawl.org/) or [`CC-NEWS`](https://commoncrawl.org/blog/news-dataset-available) check out their websites.
 Simply import our `CCNewsCrawler` and make sure to check out our [tutorial](docs/2_crawl_from_cc_news.md) beforehand.
 
-````python
+```python
 from fundus import PublisherCollection, CCNewsCrawler
 
 # initialize the crawler using all publishers supported by fundus
@@ -154,7 +146,7 @@ crawler = CCNewsCrawler(*PublisherCollection)
 # crawl 1 million articles and print
 for article in crawler.crawl(max_articles=1000000):
   print(article)
-````
+```
 
 **_Note_**: By default, the crawler utilizes all available CPU cores on your system. 
 For optimal performance, we recommend manually setting the number of processes using the `processes` parameter. 
@@ -178,55 +170,6 @@ for article in crawler.crawl(max_articles=1000000):
 ````
 
 
-## Example 4: Crawl some images
-
-By default, Fundus tries to parse the images included in every crawled article.
-Let's crawl an article and print out the images for some more details.
-
-```python
-from fundus import PublisherCollection, Crawler
-
-# initialize the crawler for The LA Times
-crawler = Crawler(PublisherCollection.us.LATimes)
-
-# crawl 1 article and print the images
-for article in crawler.crawl(max_articles=1):
-    for image in article.images:
-        print(image)
-```
-
-For [this article](https://www.latimes.com/sports/lakers/story/2024-12-13/lakers-lebron-james-away-from-team-timberwolves) you will get the following output:
-
-```console
-Fundus-Article Cover-Image:
--URL:			 'https://ca-times.brightspotcdn.com/dims4/default/41c9bc4/2147483647/strip/true/crop/4598x3065+0+0/resize/1200x800!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F77%2Feb%2F7fed2d3942fd97b0f7325e7060cf%2Flakers-timberwolves-basketball-33765.jpg'
--Description:	         'Minnesota Timberwolves forward Julius Randle (30) works toward the basket.'
--Caption:		 'Minnesota Timberwolves forward Julius Randle, left, controls the ball in front of Lakers forward Anthony Davis during the first half of the Lakers’ 97-87 loss Friday.'
--Authors:		 ['Abbie Parr / Associated Press']
--Versions:		 [320x213, 568x379, 768x512, 1024x683, 1200x800]
-
-Fundus-Article Image:
--URL:			 'https://ca-times.brightspotcdn.com/dims4/default/9a22715/2147483647/strip/true/crop/4706x3137+0+0/resize/1200x800!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ff7%2F52%2Fdcd6b263480ab579ac583a4fdbbf%2Flakers-timberwolves-basketball-48004.jpg'
--Description:	         'Lakers coach JJ Redick talks with forward Anthony Davis during a loss to the Timberwolves.'
--Caption:		 'Lakers coach JJ Redick, right, talks with forward Anthony Davis during the first half of a 97-87 loss to the Timberwolves on Friday night.'
--Authors:		 ['Abbie Parr / Associated Press']
--Versions:		 [320x213, 568x379, 768x512, 1024x683, 1200x800]
-
-Fundus-Article Image:
--URL:			 'https://ca-times.brightspotcdn.com/dims4/default/580bae4/2147483647/strip/true/crop/5093x3470+0+0/resize/1200x818!/format/webp/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3b%2Fdf%2F64c0198b4c2fb2b5824aaccb64b7%2F1486148-sp-nba-lakers-trailblazers-25-gmf.jpg'
--Description:	         'Lakers star LeBron James sits in street clothes on the bench next to his son, Bronny James.'
--Caption:		 'Lakers star LeBron James sits in street clothes on the bench next to his son, Bronny James, during a win over Portland at Crypto.com Arena on Dec. 8.'
--Authors:		 ['Gina Ferazzi / Los Angeles Times']
--Versions:		 [320x218, 568x387, 768x524, 1024x698, 1200x818]
-```
-
-For each image, the printout details:
-- The cover image designation (if applicable).
-- The URL for the highest-resolution version of the image.
-- A description of the image.
-- The image's caption.
-- The name of the copyright holder.
-- A list of all available versions of the image.
 
 ## Currently Supported News Sources
 
