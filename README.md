@@ -100,6 +100,7 @@ git clone https://github.com/zxxxv/fundus.git
 
 ```python
 #Requirements에 명시된 패키지 자동 설치
+#fundus 디렉토리 안으로 이동
 pip install .
 
 #개발자용 추가 패키지 설치
