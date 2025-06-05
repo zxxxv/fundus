@@ -69,7 +69,7 @@ RUN apt-get install -y python3 python3-pip vim
 ENTRYPOINT ["/bin/bash"]
 ```
 
-###도커 이미지 빌드
+# 도커 이미지 빌드
 
 ```
 docker build -t [이름:버전] ./
