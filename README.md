@@ -90,13 +90,13 @@ docker ps -a
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-### 📢로컬로 프로젝트 클론 해오기
+### 📢 로컬로 프로젝트 클론 해오기
 
 ```
 git clone https://github.com/zxxxv/fundus.git
 ```
 
-### 📢필수 패키지 설치
+### 📢 필수 패키지 설치
 
 ```python
 #Requirements에 명시된 패키지 자동 설치
@@ -106,7 +106,7 @@ pip install .
 pip install .[dev]
 ```
 
-## ⭐Example 1: 한국 뉴스 기사 크롤링 하기
+## ⭐ Example 1: 한국 뉴스 기사 크롤링 하기
 
 Fundus를 이용하여 한국 기반 publishers에서 기사 2개 크롤링해온다.
 
@@ -152,7 +152,7 @@ Fundus-Article including 1 image(s):
 - 기사가 크롤링된 “URL”
 - 뉴스 출처(From)
 
-## ⭐Example 2: 특정 news source 크롤링해보기
+## ⭐ Example 2: 특정 news source 크롤링해보기
 
 특정 뉴스 출처만 크롤링하고 싶을 수도 있습니다. 매일경재신문(Maeil Business Newspaper)에서만 뉴스 기사를 크롤링해보겠습니다:
 
