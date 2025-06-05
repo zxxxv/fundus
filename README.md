@@ -25,7 +25,7 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 
 ---
 
-## Goal
+## 🔥Goal
 
 Fundus는
 
@@ -58,10 +58,10 @@ Fundus는
     xmltodict>=0.13.0, <1
 ```
 
-🔥## Docker
+## 🔥Docker
 How to install & Run with Docker
 
-`Dockerfile` 만들기
+📢 `Dockerfile` 만들기
 ```
 FROM ubuntu:22.04
 
@@ -90,13 +90,13 @@ docker ps -a
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-### 로컬로 프로젝트 클론 해오기
+### 📢로컬로 프로젝트 클론 해오기
 
 ```
 git clone https://github.com/zxxxv/fundus.git
 ```
 
-### 필수 패키지 설치
+### 📢필수 패키지 설치
 
 ```
 Requirements에 명시된 패키지 자동 설치
@@ -106,7 +106,7 @@ pip install .
 pip install .[dev]
 ```
 
-## Example 1: 한국 뉴스 기사 크롤링 하기
+## ⭐Example 1: 한국 뉴스 기사 크롤링 하기
 
 Fundus를 이용하여 한국 기반 publishers에서 기사 2개 크롤링해온다.
 
@@ -152,7 +152,7 @@ Fundus-Article including 1 image(s):
 - 기사가 크롤링된 “URL”
 - 뉴스 출처(From)
 
-## Example 2: 특정 news source 크롤링해보기
+## ⭐Example 2: 특정 news source 크롤링해보기
 
 특정 뉴스 출처만 크롤링하고 싶을 수도 있습니다. 매일경재신문(Maeil Business Newspaper)에서만 뉴스 기사를 크롤링해보겠습니다:
 
@@ -167,7 +167,7 @@ for article in crawler.crawl(max_articles=2):
     print(article)
 ```
 
-## 도커 실행 후 종료하기(+저장)
+## 🔥도커 실행 후 종료하기(+저장)
 
 ```python
 #컨테이너 밖으로 나오기
@@ -186,7 +186,7 @@ docker rm <CONTAINER_ID>
 #이미지 삭제
 docker rmi <Image_ID 또는 Image_Name:태그>
 ```
-## 디렉토리 구조
+## 🔥디렉토리 구조
 
 ```console
 fundus/
@@ -239,10 +239,10 @@ fundus/
 ```
 
 
-## 현재 지원되는 News Source
+## 🔥현재 지원되는 News Source
 
 여기에서 현재 지원되는 퍼블리셔를 확인할 수 있습니다. [**here**](/docs/supported_publishers.md).
 
-## License
+## 🔥License
 
 [MIT](LICENSE)
