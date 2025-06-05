@@ -105,7 +105,7 @@ git clone https://github.com/zxxxv/fundus.git
 pip install --upgrade pip setuptools wheel
 pip install .
 
-#개발자용 추가 패키지 설치
+#개발용 추가 패키지 설치
 pip install -e .[dev]
 
 #설치 확인
