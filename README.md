@@ -64,22 +64,43 @@ make `Dockerfile`
 FROM ubuntu:22.04
 
 RUN apt-get update
-RUN apt-get install -y git python3 python3-pip vim
+RUN apt-get install -y python3 python3-pip vim
 
 ENTRYPOINT ["/bin/bash"]
 
 ```
 
+로컬로 프로젝트 클론 떠오기
 
-## Example 1: Crawl a bunch of English-language news articles
+```console
+git clone 
+```
 
-Let's use Fundus to crawl 2 articles from publishers based in the US.
+필수 패키지 설치
+
+```console
+
+pip install .
+
+```
+
+개발자용 추가 패키지 설치
+
+```console
+
+pip install .[dev]
+
+```
+
+## Example 1: 한국 뉴스 기사 크롤링 하기
+
+Fundus를 이용하여 한국 기반 publishers에서 기사 2개 크롤링해온다.
 
 ```python
 from fundus import PublisherCollection, Crawler
 
-# initialize the crawler for news publishers based in the US
-crawler = Crawler(PublisherCollection.us)
+# initialize the crawler for news publishers based in the KR
+crawler = Crawler(PublisherCollection.kr)
 
 # crawl 2 articles and print
 for article in crawler.crawl(max_articles=2):
@@ -88,33 +109,34 @@ for article in crawler.crawl(max_articles=2):
 
 That's already it!
 
-If you run this code, it should print out something like this:
+이제 코드를 실행해보면 아래와 같은 결과가 나올것이다:
 
 ```console
 Fundus-Article including 1 image(s):
-- Title: "Feinstein's Return Not Enough for Confirmation of Controversial New [...]"
-- Text:  "89-year-old California senator arrived hour late to Judiciary Committee hearing
-          to advance President Biden's stalled nominations  Democrats [...]"
-- URL:    https://freebeacon.com/politics/feinsteins-return-not-enough-for-confirmation-of-controversial-new-hampshire-judicial-nominee/
-- From:   The Washington Free Beacon (2023-05-11 18:41)
+- Title: "러 푸틴, 교황 레오 14세와 첫 통화 … ‘근본 원인’ 해결 필요 재차 강조"
+- Text:  "지난 4일(현지시각) 러시아 크렘린궁에 따르면, 블라디미르 푸틴 러시아 대통령과 레오 14세 교황이 통화로 러시아 - 우크라이나 전쟁에 대해
+          논의했다.  크렘린궁 측은 성명을 발표해 푸틴 대통령이 통화에서 정치적·외교적 수단으로 평화를 이룩하는 것에 관심이 [...]"
+- URL:    https://www.mk.co.kr/news/world/11335094
+- From:   Maeil Business Newspaper (2025-06-05 10:56)
 
-Fundus-Article including 3 image(s):
-- Title: "Northwestern student government freezes College Republicans funding over [...]"
-- Text:  "Student government at Northwestern University in Illinois "indefinitely" froze
-          the funds of the university's chapter of College Republicans [...]"
-- URL:    https://www.foxnews.com/us/northwestern-student-government-freezes-college-republicans-funding-poster-critical-lgbtq-community
-- From:   Fox News (2023-05-09 14:37)
+Fundus-Article including 1 image(s):
+- Title: "두산에너빌, 380MW급 가스터빈 성능시험 성공"
+- Text:  "데이터센터 확대에 가스터빈 시장 공략 박차  두산에너빌리티가 자체 기술로 개발한 초대형 가스터빈 성능시험에 성공했다. 친환경 발전 수요와
+          데이터센터 확대로 인해 가스터빈 수요가 늘어나는 상황인 만큼 관련 시장 공략 준비를 마친 셈이다.  두산에너빌리티는 [...]"
+- URL:    https://www.mk.co.kr/news/business/11335088
+- From:   Maeil Business Newspaper (2025-06-05 10:50)
+
 ```
 
-This printout tells you that you successfully crawled two articles!
+이 출력은 두 개의 기사를 성공적으로 크롤링했음을 알려줍니다!
 
-For each article, the printout details:
-- the number of images included in the article
-- the "Title" of the article, i.e. its headline 
-- the "Text", i.e. the main article body text
-- the "URL" from which it was crawled
-- the news source it is "From"
+각 기사에 대해 출력물은 다음을 상세히 보여줍니다:
 
+- 기사에 포함된 이미지 수
+- “제목”(Title), 즉 헤드라인
+- “본문”(Text), 즉 주요 기사 본문 텍스트
+- 기사가 크롤링된 “URL”
+- 뉴스 출처(From)
 
 ## Example 2: Crawl a specific news source
 
@@ -123,52 +145,13 @@ Maybe you want to crawl a specific news source instead. Let's crawl news article
 ```python
 from fundus import PublisherCollection, Crawler
 
-# initialize the crawler for The New Yorker
-crawler = Crawler(PublisherCollection.us.TheNewYorker)
+# initialize the crawler for 매일경제신문사
+crawler = Crawler(PublisherCollection.kr.MBN)
 
 # crawl 2 articles and print
 for article in crawler.crawl(max_articles=2):
     print(article)
 ```
-
-## Example 3: Crawl 1 Million articles
-
-To crawl such a vast amount of data, Fundus relies on the `CommonCrawl` web archive, in particular the news crawl `CC-NEWS`.
-If you're not familiar with [`CommonCrawl`](https://commoncrawl.org/) or [`CC-NEWS`](https://commoncrawl.org/blog/news-dataset-available) check out their websites.
-Simply import our `CCNewsCrawler` and make sure to check out our [tutorial](docs/2_crawl_from_cc_news.md) beforehand.
-
-```python
-from fundus import PublisherCollection, CCNewsCrawler
-
-# initialize the crawler using all publishers supported by fundus
-crawler = CCNewsCrawler(*PublisherCollection)
-
-# crawl 1 million articles and print
-for article in crawler.crawl(max_articles=1000000):
-  print(article)
-```
-
-**_Note_**: By default, the crawler utilizes all available CPU cores on your system. 
-For optimal performance, we recommend manually setting the number of processes using the `processes` parameter. 
-A good rule of thumb is to allocate `one process per 200 Mbps of bandwidth`.
-This can vary depending on core speed.
-
-**_Note_**: The crawl above took ~7 hours using the entire `PublisherCollection` on a machine with 1000 Mbps connection, Core i9-13905H, 64GB Ram, Windows 11 and without printing the articles.
-The estimated time can vary substantially depending on the publisher used and the available bandwidth.
-Additionally, not all publishers are included in the `CC-NEWS` crawl (especially US based publishers).
-For large corpus creation, one can also use the regular crawler by utilizing only sitemaps, which requires significantly less bandwidth.
-
-````python
-from fundus import PublisherCollection, Crawler, Sitemap
-
-# initialize a crawler for us/uk based publishers and restrict to Sitemaps only
-crawler = Crawler(PublisherCollection.us, PublisherCollection.uk, restrict_sources_to=[Sitemap])
-
-# crawl 1 million articles and print
-for article in crawler.crawl(max_articles=1000000):
-  print(article)
-````
-
 
 
 ## Currently Supported News Sources
