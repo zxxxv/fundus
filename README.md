@@ -228,50 +228,6 @@ Check out our evaluation [benchmark](https://github.com/dobbersc/fundus-evaluati
 
 The following table summarizes the overall performance of Fundus and evaluated scrapers in terms of averaged ROUGE-LSum precision, recall and F1-score and their standard deviation. The table is sorted in descending order over the F1-score:
 
-| **Scraper**                                                                                                     | **Precision**             | **Recall**                | **F1-Score**              | **Version** |
-|-----------------------------------------------------------------------------------------------------------------|:--------------------------|---------------------------|---------------------------|-------------|
-| [Fundus](https://github.com/flairNLP/fundus)                                                                    | **99.89**<sub>±0.57</sub> | 96.75<sub>±12.75</sub>    | **97.69**<sub>±9.75</sub> | 0.4.1       |
-| [Trafilatura](https://github.com/adbar/trafilatura)                                                             | 93.91<sub>±12.89</sub>    | 96.85<sub>±15.69</sub>    | 93.62<sub>±16.73</sub>    | 1.12.0      |
-| [news-please](https://github.com/fhamborg/news-please)                                                          | 97.95<sub>±10.08</sub>    | 91.89<sub>±16.15</sub>    | 93.39<sub>±14.52</sub>    | 1.6.13      |
-| [BTE](https://github.com/dobbersc/fundus-evaluation/blob/master/src/fundus_evaluation/scrapers/bte.py)          | 81.09<sub>±19.41</sub>    | **98.23**<sub>±8.61</sub> | 87.14<sub>±15.48</sub>    | /           |
-| [jusText](https://github.com/miso-belica/jusText)                                                               | 86.51<sub>±18.92</sub>    | 90.23<sub>±20.61</sub>    | 86.96<sub>±19.76</sub>    | 3.0.1       |
-| [BoilerNet](https://github.com/dobbersc/fundus-evaluation/tree/master/src/fundus_evaluation/scrapers/boilernet) | 85.96<sub>±18.55</sub>    | 91.21<sub>±19.15</sub>    | 86.52<sub>±18.03</sub>    | /           |
-| [Boilerpipe](https://github.com/kohlschutter/boilerpipe)                                                        | 82.89<sub>±20.65</sub>    | 82.11<sub>±29.99</sub>    | 79.90<sub>±25.86</sub>    | 1.3.0       |
-
-## Cite
-
-Please cite the following [paper](https://aclanthology.org/2024.acl-demos.29/) when using Fundus or building upon our work:
-
-```bibtex
-@inproceedings{dallabetta-etal-2024-fundus,
-    title = "Fundus: A Simple-to-Use News Scraper Optimized for High Quality Extractions",
-    author = "Dallabetta, Max  and
-      Dobberstein, Conrad  and
-      Breiding, Adrian  and
-      Akbik, Alan",
-    editor = "Cao, Yixin  and
-      Feng, Yang  and
-      Xiong, Deyi",
-    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations)",
-    month = aug,
-    year = "2024",
-    address = "Bangkok, Thailand",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2024.acl-demos.29",
-    pages = "305--314",
-}
-```
-
-## Contact
-
-Please email your questions or comments to [**Max Dallabetta**](mailto:max.dallabetta@googlemail.com?subject=[GitHub]%20Fundus)
-
-## Contributing
-
-Thanks for your interest in contributing! There are many ways to get involved;
-start with our [contributor guidelines](docs/how_to_contribute.md) and then
-check these [open issues](https://github.com/flairNLP/fundus/issues) for specific tasks.
-
 ## License
 
 [MIT](LICENSE)
