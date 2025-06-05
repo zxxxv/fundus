@@ -118,10 +118,6 @@ pip install .
 pip install .[dev]
 ```
 
-## 디렉토리 구조
-
-
-
 ## Example 1: 한국 뉴스 기사 크롤링 하기
 
 Fundus를 이용하여 한국 기반 publishers에서 기사 2개 크롤링해온다.
@@ -215,7 +211,7 @@ docker rm <CONTAINER_ID>
 이미지 삭제
 
 ```
-docker rmi <Image_ID 또는 Image_Name:태>
+docker rmi <Image_ID 또는 Image_Name:태그>
 ```
 
 ## 현재 지원되는 News Source
