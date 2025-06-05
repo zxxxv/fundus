@@ -18,7 +18,7 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 <div align="center">
 <hr>
 
-[Goal](#goal) | [Requirements](#requirements) | [Docker](#docker)  [News Sources](/docs/supported_publishers.md)
+[Goal](#goal) | [Requirements](#requirements) | [Docker](#docker) | [News Sources](/docs/supported_publishers.md)
 
 </div>
 
