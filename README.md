@@ -200,33 +200,9 @@ For each image, the printout details:
 - The name of the copyright holder.
 - A list of all available versions of the image.
 
-
-## Tutorials
-
-We provide **quick tutorials** to get you started with the library:
-
-1. [**Tutorial 1: How to crawl news with Fundus**](docs/1_getting_started.md)
-2. [**Tutorial 2: How to crawl articles from CC-NEWS**](docs/2_crawl_from_cc_news.md)
-3. [**Tutorial 3: The Article Class**](docs/3_the_article_class.md)
-4. [**Tutorial 4: How to filter articles**](docs/4_how_to_filter_articles.md)
-5. [**Tutorial 5: Advanced topics**](docs/5_advanced_topics.md)
-6. [**Tutorial 6: Logging**](docs/6_logging.md)
-
-If you wish to contribute check out these tutorials:
-1. [**How to contribute**](docs/how_to_contribute.md)
-2. [**How to add a publisher**](docs/how_to_add_a_publisher.md)
-
 ## Currently Supported News Sources
 
 You can find the publishers currently supported [**here**](/docs/supported_publishers.md).
-
-Also: **Adding a new publisher is easy - consider contributing to the project!**
-
-## Evaluation Benchmark
-
-Check out our evaluation [benchmark](https://github.com/dobbersc/fundus-evaluation).
-
-The following table summarizes the overall performance of Fundus and evaluated scrapers in terms of averaged ROUGE-LSum precision, recall and F1-score and their standard deviation. The table is sorted in descending order over the F1-score:
 
 ## License
 
