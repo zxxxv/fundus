@@ -72,24 +72,20 @@ ENTRYPOINT ["/bin/bash"]
 
 로컬로 프로젝트 클론 떠오기
 
-```console
+```
 git clone 
 ```
 
 필수 패키지 설치
 
-```console
-
+```
 pip install .
-
 ```
 
 개발자용 추가 패키지 설치
 
-```console
-
+```
 pip install .[dev]
-
 ```
 
 ## Example 1: 한국 뉴스 기사 크롤링 하기
