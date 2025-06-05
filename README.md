@@ -71,7 +71,7 @@ RUN apt-get install -y python3 python3-pip vim
 ENTRYPOINT ["/bin/bash"]
 ```
 
-```
+```console
 # 도커 이미지 빌드
 docker build -t [이름:태그] ./
 
@@ -79,7 +79,7 @@ docker build -t [이름:태그] ./
 docker images
 ```
 
-```
+```console
 # 도커 컨테이너 만들고 실행
 docker run -dit [이름:태그]
 
@@ -92,13 +92,13 @@ docker exec -it <CONTAINER_ID> /bin/bash
 
 ### 📢로컬로 프로젝트 클론 해오기
 
-```
+```console
 git clone https://github.com/zxxxv/fundus.git
 ```
 
 ### 📢필수 패키지 설치
 
-```
+```console
 Requirements에 명시된 패키지 자동 설치
 pip install .
 
