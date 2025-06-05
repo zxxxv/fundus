@@ -61,7 +61,7 @@ Fundus는
 ## 🔥Docker
 How to install & Run with Docker
 
-📢 `Dockerfile` 만들기
+ 📢 `Dockerfile` , 이미지, 컨테이너 만들기
 ```
 FROM ubuntu:22.04
 
