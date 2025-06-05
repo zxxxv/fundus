@@ -76,13 +76,23 @@ ENTRYPOINT ["/bin/bash"]
 ### 도커 이미지 빌드
 
 ```
-docker build -t [이름:버전] ./
+docker build -t [이름:태그] ./
+```
+
+도커 이미지 확인하기
+```
+docker images
 ```
 
 ### 도커 컨테이너 만들고 실행
 
 ```
-docker run -dit [이름:버전]
+docker run -dit [이름:태그]
+```
+
+도커 컨테이너 확인하기기
+```
+docker ps -a
 ```
 
 ### 도커 컨테이너 접속
@@ -110,9 +120,41 @@ pip install .
 pip install .[dev]
 ```
 
+### 도커 실행 후 종료하기(+저장)
+
+컨테이너 밖으로 나오기
+
+```
+exit
+Ctrl + P 그리고 Ctrl + Q
+```
+
+도커 커밋 (컨테이너 이미지로 저장하기)
+
+```
+docker commit [OPTIONS] <컨테이너_ID_or_이름> <새_이미지이름>:<태그>
+```
+
+컨테이너 멈추기
+
+```
+docker stop <CONTAINER_ID>
+```
+
+컨테이너 삭제
+
+```
+docker rm <CONTAINER_ID>
+```
+
+이미지 삭제
+
+```
+docker rmi <Image_ID 또는 Image_Name:태>
+```
+
 ## 디렉토리 구조
 
-## 도커 실행 후 종료하기(+저장)
 
 ## Example 1: 한국 뉴스 기사 크롤링 하기
 
