@@ -27,7 +27,8 @@ Developed at <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiet
 
 ## Goal
 
-Fundus
+Fundus는
+
 * **A static news crawler.**
 단 몇 줄의 Python 코드만으로 온라인 뉴스 기사를 손쉽게 크롤링할 수 있습니다.
 
