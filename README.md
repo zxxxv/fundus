@@ -69,31 +69,31 @@ RUN apt-get install -y python3 python3-pip vim
 ENTRYPOINT ["/bin/bash"]
 ```
 
-도커 이미지 빌드
+###도커 이미지 빌드
 
 ```
 docker build -t [이름:버전] ./
 ```
 
-도커 컨테이너 만들고 실행
+###도커 컨테이너 만들고 실행
 
 ```
 docker run -dit [이름:버전]
 ```
 
-도커 컨테이너 접속
+###도커 컨테이너 접속
 
 ```
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-로컬로 프로젝트 클론 떠오기
+###로컬로 프로젝트 클론 떠오기
 
 ```
 git clone https://github.com/zxxxv/fundus.git
 ```
 
-필수 패키지 설치
+###필수 패키지 설치
 
 ```
 pip install .
@@ -167,9 +167,9 @@ for article in crawler.crawl(max_articles=2):
 ```
 
 
-## Currently Supported News Sources
+## 현재 지원되는 News Source
 
-You can find the publishers currently supported [**here**](/docs/supported_publishers.md).
+여기에서 현재 지원되는 퍼블리셔를 확인할 수 있습니다. [**here**](/docs/supported_publishers.md).
 
 ## License
 
