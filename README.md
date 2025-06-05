@@ -88,7 +88,7 @@ docker images
 docker run -dit [이름:태그]
 ```
 
-도커 컨테이너 확인하기기
+도커 컨테이너 확인하기
 ```
 docker ps -a
 ```
@@ -99,7 +99,7 @@ docker ps -a
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
-### 로컬로 프로젝트 클론 떠오기
+### 로컬로 프로젝트 클론 해오기
 
 ```
 git clone https://github.com/zxxxv/fundus.git
@@ -118,42 +118,8 @@ pip install .
 pip install .[dev]
 ```
 
-### 도커 실행 후 종료하기(+저장)
-
-컨테이너 밖으로 나오기
-
-```
-exit
-```
-```
-Ctrl + P 그리고 Ctrl + Q
-```
-
-도커 커밋 (컨테이너 이미지로 저장하기)
-
-```
-docker commit [OPTIONS] <컨테이너_ID_or_이름> <새_이미지이름>:<태그>
-```
-
-컨테이너 멈추기
-
-```
-docker stop <CONTAINER_ID>
-```
-
-컨테이너 삭제
-
-```
-docker rm <CONTAINER_ID>
-```
-
-이미지 삭제
-
-```
-docker rmi <Image_ID 또는 Image_Name:태>
-```
-
 ## 디렉토리 구조
+
 
 
 ## Example 1: 한국 뉴스 기사 크롤링 하기
@@ -217,6 +183,40 @@ for article in crawler.crawl(max_articles=2):
     print(article)
 ```
 
+## 도커 실행 후 종료하기(+저장)
+
+컨테이너 밖으로 나오기
+
+```
+exit
+```
+```
+Ctrl + P 그리고 Ctrl + Q
+```
+
+도커 커밋 (컨테이너 이미지로 저장하기)
+
+```
+docker commit [OPTIONS] <컨테이너_ID_or_이름> <새_이미지이름>:<태그>
+```
+
+컨테이너 멈추기
+
+```
+docker stop <CONTAINER_ID>
+```
+
+컨테이너 삭제
+
+```
+docker rm <CONTAINER_ID>
+```
+
+이미지 삭제
+
+```
+docker rmi <Image_ID 또는 Image_Name:태>
+```
 
 ## 현재 지원되는 News Source
 
