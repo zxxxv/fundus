@@ -60,9 +60,8 @@ Fundus는
     xmltodict>=0.13.0, <1
 ```
 
-## Docker - How to install & Run
-How to start with Docker
-
+## Docker
+How to install & Run with Docker
 
 `Dockerfile` 만들기
 ```
