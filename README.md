@@ -110,6 +110,8 @@ pip install .[dev]
 
 #설치 확인
 pip list | grep fundus
+#결과가 이렇게 나오면 성공!
+fundus             0.5.0
 ```
 
 ## ⭐ Example 1: 한국 뉴스 기사 크롤링 하기
