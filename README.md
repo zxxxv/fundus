@@ -35,7 +35,7 @@ Fundus는
 * 저의 목표는 Fundus에 KR 퍼블리셔를 추가하여, 대표 언론사 중 하나인 매일경제신문사의 기사 내용을 자동으로 스크랩해오는 기능을 구현하는 것입니다.
 이를 통해 한국어 뉴스 데이터 수집 범위를 확장하고, 사용자가 매일경제신문사의 최신 기사에 빠르게 접근할 수 있도록 지원합니다.
 
-## Requirements
+: ## Requirements
 
 ```console
 
@@ -71,31 +71,22 @@ RUN apt-get install -y python3 python3-pip vim
 ENTRYPOINT ["/bin/bash"]
 ```
 
-### 도커 이미지 빌드
-
 ```
+# 도커 이미지 빌드
 docker build -t [이름:태그] ./
-```
 
 도커 이미지 확인하기
-```
 docker images
 ```
 
-### 도커 컨테이너 만들고 실행
-
 ```
+# 도커 컨테이너 만들고 실행
 docker run -dit [이름:태그]
-```
 
 도커 컨테이너 확인하기
-```
 docker ps -a
-```
 
-### 도커 컨테이너 접속
-
-```
+#도커 컨테이너 접속
 docker exec -it <CONTAINER_ID> /bin/bash
 ```
 
@@ -106,15 +97,12 @@ git clone https://github.com/zxxxv/fundus.git
 ```
 
 ### 필수 패키지 설치
+
+```
 Requirements에 명시된 패키지 자동 설치
-
-```
 pip install .
-```
 
-개발자용 추가 패키지 설치
-
-```
+#개발자용 추가 패키지 설치
 pip install .[dev]
 ```
 
@@ -181,38 +169,75 @@ for article in crawler.crawl(max_articles=2):
 
 ## 도커 실행 후 종료하기(+저장)
 
-컨테이너 밖으로 나오기
-
-```
+```python
+#컨테이너 밖으로 나오기
 exit
-```
-```
 Ctrl + P 그리고 Ctrl + Q
-```
 
-도커 커밋 (컨테이너 이미지로 저장하기)
-
-```
+#도커 커밋 (컨테이너 이미지로 저장하기)
 docker commit [OPTIONS] <컨테이너_ID_or_이름> <새_이미지이름>:<태그>
-```
 
-컨테이너 멈추기
-
-```
+#컨테이너 멈추기
 docker stop <CONTAINER_ID>
-```
 
-컨테이너 삭제
-
-```
+#컨테이너 삭제
 docker rm <CONTAINER_ID>
-```
 
-이미지 삭제
-
-```
+#이미지 삭제
 docker rmi <Image_ID 또는 Image_Name:태그>
 ```
+### 디렉토리 구조
+
+```console
+fundus/
+├── .github/                       # GitHub 설정 및 워크플로우
+│   └── workflows/                 # CI/CD 워크플로우 정의 (예: 테스트, 린트)
+├── docs/                          # 프로젝트 관련 문서 및 튜토리얼
+│   ├── 1_getting_started.md       # 기본 사용법 안내
+│   ├── how_to_add_a_publisher.md  # 퍼블리셔 추가 가이드
+│   ├── supported_publishers.md    # 지원 중인 퍼블리셔 목록
+│   └── …                          # 기타 튜토리얼 및 고급 주제 문서
+├── resources/                     # 정적 리소스  
+│   └── logo/                      # 로고 이미지 등
+│       ├── fundus-logo.png        # 프로젝트 로고
+│       └── …                      # 추가 로고 파일
+├── scripts/                       # 유틸리티 스크립트
+│   ├── some_setup_script.sh       # 예: 환경 설정을 위한 스크립트
+│   └── …                          # 기타 자동화 스크립트
+├── src/                           # 소스 코드
+│   └── fundus/                    # Python 패키지 루트
+│       ├── __init__.py            # 패키지 초기화 파일
+│       ├── article.py             # 크롤링된 기사를 나타내는 클래스 정의
+│       ├── crawler.py             # 일반 웹 크롤러 메인 로직
+│       ├── ccnews_crawler.py      # CC-NEWS 아카이브를 위한 대규모 크롤러
+│       ├── exceptions.py          # 커스텀 예외 정의
+│       ├── helpers.py             # 내부적으로 쓰이는 유틸리티 함수 모음
+│       ├── publishers/            # 퍼블리셔별 스펙 및 파서 정의
+│       │   ├── __init__.py        # 퍼블리셔 패키지 초기화
+│       │   ├── us.py              # 미국 기반 퍼블리셔(예: TheNewYorker 등)
+│       │   ├── uk.py              # 영국 기반 퍼블리셔(예: TheGuardian 등)
+│       │   ├── kr/                # 한국 퍼블리셔 관련 모듈
+│       │   │   ├── __init__.py    # KR 퍼블리셔 패키지 초기화
+│       │   │   ├── mbn.py         # 매일경제신문사(MBN) 파서 구현
+│       │   │   └── …              # 추가된 다른 한국 언론사 파서
+│       │   └── …                  # 기타 국가별 퍼블리셔 정의
+│       └── utils/                 # 내부 도우미 함수 및 공용 유틸리티
+│           ├── __init__.py        # 유틸리티 패키지 초기화
+│           ├── fetch_utils.py     # HTTP 요청 및 콘텐츠 다운로드 도구
+│           └── parse_utils.py     # HTML 파싱 보조 함수
+├── tests/                         # 테스트 코드
+│   ├── test_crawler.py            # 크롤러 동작 검증 테스트
+│   ├── test_publishers.py         # 퍼블리셔 파서 테스트
+│   └── …                          # 기타 유닛/통합 테스트
+├── .gitignore                     # Git에서 무시할 파일/폴더 목록
+├── CODE_OF_CONDUCT.md             # 오픈소스 기여를 위한 행동 강령
+├── LICENSE                        # MIT 라이선스
+├── MANIFEST.in                    # 패키징 시 포함할 파일 지정
+├── README.md                      # 프로젝트 개요 및 설치/사용법 설명
+└── pyproject.toml                 # 빌드 및 프로젝트 설정 파일
+
+```
+
 
 ## 현재 지원되는 News Source
 
