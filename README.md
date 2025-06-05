@@ -110,6 +110,10 @@ pip install .
 pip install .[dev]
 ```
 
+## 디렉토리 구조
+
+## 도커 실행 후 종료하기(+저장)
+
 ## Example 1: 한국 뉴스 기사 크롤링 하기
 
 Fundus를 이용하여 한국 기반 publishers에서 기사 2개 크롤링해온다.
