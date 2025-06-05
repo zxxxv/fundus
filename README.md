@@ -156,14 +156,14 @@ Fundus-Article including 1 image(s):
 - 기사가 크롤링된 “URL”
 - 뉴스 출처(From)
 
-## Example 2: Crawl a specific news source
+## Example 2: 특정 news sourc 크롤링해보기
 
-Maybe you want to crawl a specific news source instead. Let's crawl news articles from Washington Times only:
+특정 뉴스 출처만 크롤링하고 싶을 수도 있습니다. 매일경재신문(Maeil Business Newspaper)에서만 뉴스 기사를 크롤링해보겠습니다:
 
 ```python
 from fundus import PublisherCollection, Crawler
 
-# initialize the crawler for 매일경제신문사
+# initialize the crawler for 매일경제신문사(MBN)
 crawler = Crawler(PublisherCollection.kr.MBN)
 
 # crawl 2 articles and print
