@@ -107,6 +107,9 @@ pip install .
 
 #개발자용 추가 패키지 설치
 pip install .[dev]
+
+#설치 확인
+pip list | grep fundus
 ```
 
 ## ⭐ Example 1: 한국 뉴스 기사 크롤링 하기
